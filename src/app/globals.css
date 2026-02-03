@@ -1,42 +1,243 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0d0d0d;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.15);
+  --text: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent: #4f8cff;
+  --accent-hover: #3b6fd6;
+  --radius: 16px;
+  --transition: 0.25s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
 }
 
-a {
-  color: inherit;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  position: relative;
+}
+
+.logo img {
+  width: 48px;
+  opacity: 0.9;
+  transition: var(--transition);
+}
+
+.logo img:hover {
+  opacity: 1;
+}
+
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  padding: 40px;
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.4s ease;
+}
+
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input {
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.input:focus {
+  border-color: var(--accent);
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+.primaryButton {
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  background: var(--accent);
+  border: none;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.secondaryButton {
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-size: 17px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.secondaryButton:hover {
+  background: var(--accent);
+  color: white;
+}
+.primaryButton:hover {
+  background: var(--accent-hover);
+}
+
+
+.linkText {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.linkText a {
+  color: var(--accent);
   text-decoration: none;
+  transition: var(--transition);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.linkText a:hover {
+  color: var(--accent-hover);
+}
+
+.logo {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  display: inline-block;
+}
+
+.logo img {
+  width: 48px;
+  opacity: 0.9;
+  transition: var(--transition);
+}
+
+.logo img:hover {
+  opacity: 1;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.heroButton {
+  padding: 16px 28px;
+  border-radius: var(--radius);
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.heroButton a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.heroPrimary {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 4px 20px rgba(79, 140, 255, 0.4);
+}
+
+.heroPrimary:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 25px rgba(79, 140, 255, 0.6);
+}
+
+.heroSecondary {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+.heroSecondary:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.dashboardRow {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  width: 100%;
+  justify-content: center;
+}
+
+.dashboardCard {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  padding: 30px;
+  border-radius: var(--radius);
+  width: 280px;
+  min-height: 160px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.4s ease;
+  transition: var(--transition);
+}
+
+.dashboardCard button {
+  margin-top: 15px;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  background: var(--accent);
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dashboardCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
