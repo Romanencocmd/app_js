@@ -8,7 +8,7 @@ export default function LoginPage() {
     const email = formData.get("email");
     const password = formData.get("password");
 
-    const res = await fetch("http://localhost:5000/login", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -34,25 +34,10 @@ export default function LoginPage() {
         <h1 className="title">LOGIN</h1>
 
         <form className="form" onSubmit={handleLogin}>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="input"
-            required
-          />
+          <input type="email" name="email" placeholder="Email" className="input" required />
+          <input type="password" name="password" placeholder="Password" className="input" required />
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            className="input"
-            required
-          />
-
-          <button type="submit" className="primaryButton">
-            Login
-          </button>
+          <button type="submit" className="primaryButton">Login</button>
         </form>
 
         <p className="linkText">
